@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="viewport" content="width=device-width， initial-scale=1"><!--最新版本的Bootstrap核心 cSs文件-->
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+		<script src="bootstrap/js/jquery-2.1.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vue.global.js" type="text/javascript" charset="utf-8"></script>
+		<script src="bootstrap/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+
+		<style>
+			.goodboy {
+				font-weight: bold;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container" style="margin-top: 30px; " id="app">
+			<form>
+				<div class="form-group">
+					<input type="email" class="form-control" id="task_no" placeholder="请输入任务编号">
+				</div>
+				<button type="button" class="btn btn-primary btn-block" @click="query_one">查询手机维修信息</button></ form>
+				<div  v-if="flag">
+					<table class="table table-bordered">
+						<tr>
+							<td class="task_no">任务编号</td>
+							<td>{{ service_list.task_no }}</td>
+						</tr>
+						<tr>
+							<td class="cus_name">客户姓名</td>
+							<td>{{ service_list.cus_name }}</td>
+						</tr>
+						<tr>
+							<td class="cus_phone">电话</td>
+							<td>{{ service_list.cus_phone }}</td>
+						</tr>
+						<tr>
+							<td class="task_status">状态</td>
+							<td>{{ service_list.task_status==0?"录单完成":service_list.task_status==1?"维修中":service_list.task_status==2?"取机":" " }}</td>
+						</tr>
+					</table>
+				</div>
+		</div>
+		<script>
+			const {
+				createApp
+			} = Vue
+			createApp({
+				data() {
+					return  {
+						flag:false,
+						service_list:{
+							task_no:"",
+							cus_name:"",
+							cus_phone:"",
+							task_status:""
+						}
+					}
+				},
+				mounted() {
+				},
+				methods: {
+					query_one() {
+						var that = this;
+						if($("#task_no").val()===""){
+							alert("请输入编号或手机号");
+							return;
+						}
+						console.log($("#task_no").val());
+						$.post("http://localhost:3000/task?name=query_one", {
+							"task_no": $("#task_no").val()
+						}, function(data) {
+							console.log(data);
+							that.flag = true
+							that.service_list = data[0];
+							
+						});
+					}
+				}
+			}).mount('#app')
+		</script>
+	</body>
+</html>

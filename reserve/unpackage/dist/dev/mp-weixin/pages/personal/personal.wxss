@@ -1,0 +1,21 @@
+.personal .header {
+  height: 200rpx;
+  line-height: 200rpx;
+  background-color: #ffe4b5;
+  display: flex;
+}
+.personal .header .userAvotar {
+  width: 100rpx;
+  height: 100rpx;
+  vertical-align: middle;
+  margin: 30rpx;
+}
+.personal .header .toLogin {
+  font-size: 30rpx;
+}
+.personal .header button {
+  position: absolute;
+  top: 80rpx;
+  left: 550rpx;
+}
+

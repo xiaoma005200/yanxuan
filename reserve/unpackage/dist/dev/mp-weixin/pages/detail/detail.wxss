@@ -1,0 +1,62 @@
+.detail .header {
+  width: 570rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  margin: 0 auto;
+  color: #f00;
+}
+.detail .detailScroll {
+  height: calc(100vh - 90rpx - 100rpx);
+}
+.detail .detailScroll image {
+  width: 100%;
+  height: 750rpx;
+}
+.detail .detailScroll .tag {
+  width: 90%;
+  height: 100rpx;
+  line-height: 100rpx;
+  background-color: #bb2c08;
+  margin: 20rpx auto;
+  text-align: center;
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 10rpx;
+}
+.detail .detailScroll .price {
+  font-size: 50rpx;
+  color: #dd1a21;
+  line-height: 70rpx;
+  margin-left: 5%;
+}
+.detail .detailScroll .list {
+  margin-left: 5%;
+  font-size: 28rpx;
+  line-height: 50rpx;
+}
+.detail .footer {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 2rpx solid #ccc;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.detail .footer image {
+  width: 60rpx;
+  height: 60rpx;
+  margin: 20rpx 40rpx;
+}
+.detail .footer .btn {
+  flex: 2;
+  border-left: 2rpx solid #ccc;
+  text-align: center;
+}
+.detail .footer .btn.cart {
+  background-color: #dd1a21;
+  color: #fff;
+}
+

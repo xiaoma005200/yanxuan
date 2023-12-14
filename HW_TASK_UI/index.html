@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+		<script src="bootstrap/js/jquery-2.1.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vue.global.js" type="text/javascript" charset="utf-8"></script>
+		<script src="bootstrap/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="container" id="app">
+			<div class="row">
+				<div class="col-md-3" style="margin-top: 50px;">
+					<!--左侧菜单栏start-->
+					<div class="list-group">
+						<a href="#" class=" list-group-item active">
+							华为门店维修接待管理系统
+						</a>
+						<a href="#" @click="show_manager(1)" class="list-group-item">客户接待</a>
+						<a href="#" @click="show_manager(2)" class="list-group-item">维修管理</a>
+						<a href="#" @click="show_manager(3)" class="list-group-item">配件查询</a>
+					</div>
+					<!--左侧菜单栏end-->
+				</div>
+				<div class="col-md-9" style="margin-top: 50px;">
+					<div v-if="cus_view" class="panel panel-primary">
+						<div class="panel-heading">客户办理业务信息列表</div>
+						<!--客户接待start-->
+						<div class="panel-body">
+							<p>
+							<form class="form-inline">
+								<div class="form-group">
+									&nbsp;<label for="exampleInputName2">客户名</label>&nbsp;
+									<input type="text" style="width:80px" class="form-control" id="cus_name"
+										placeholder="请输姓名">
+								</div>
+								<div class="form-group">
+									&nbsp;<label for="exampleInputEmai12">客户电话</label>&nbsp;
+									<input type="number" class="form-control" id="cus_phone" placeholder="请输入电话号码">
+								</div>
+								<div class="form-group">
+									&nbsp;<label for="exampleInputEmail2">维修项目</label>&nbsp;
+									<select class="form-control" id="task_item">
+										<option>电池</option>
+										<option>外屏</option>
+										<option>内屏</option>
+										<option>摄像头</option>
+										<option>主板</option>
+									</select>
+								</div>
+								&nbsp;<button type="button" @click="save_task()" class="btn btn-danger">接待客户</button>
+							</form>
+							</p>
+						</div>
+						<table class="table table-bordered table-striped table-hover">
+							<thead>
+								<tr align="center" style="font-weight: bold;">
+									<td>任务编号</td>
+									<td>姓名</td>
+									<td>联系电话</td>
+									<td>业务项目</td>
+									<td>状态</td>
+									<td>操作</td>
+								</tr>
+							</thead>
+							<tbody class="ttr" align="center">
+								<tr v-for="task in task_list">
+									<td>{{task.task_no}}</td>
+									<td>{{task.cus_name}}</td>
+									<td>{{task.cus_phone}}</td>
+									<td>{{task.task_item}}</td>
+									<td>{{task.task_status==0?"录单完成":task.task_status==1?"维修中":"取机"}}</td>
+									<td>
+										<button class="btn btn-warning">查看</button>
+										<button class="btn btn-primary" @click="removeTask(task.task_no)">删除</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<!--客户接待end-->
+					</div>
+					
+					<!--维修管理start-->
+					<div v-if="service_view" class=panel-primary"">
+						<div class="panel-heading">维修信息列表</div>
+						<table class="table table-bordered table-striped table-hover">
+							<thead>
+								<tr align="center" style="font-weight: bold;">
+									<td>任务编号</td>
+									<td>姓名</td>
+									<td>联系电话</td>
+									<td>业务项目</td>
+									<td>状态</td>
+									<td>操作</td>
+								</tr>
+							</thead>
+							<tbody class="ttr" align="center">
+								<tr v-for="service in service_list">
+									<td>{{service.task_no}}</td>
+									<td>{{service.cus_name}}</td>
+									<td>{{service.cus_phone}}</td>
+									<td>{{service.task_item}}</td>
+									<td>{{service.task_status==0?"录单完成":service.task_status==1?"维修中":"取机"}}</td>
+									<td>
+										<button v-if="service.task_status==0"
+											@click="change_status(service.task_no,'',1)"
+											class="btn btn-warning">开始维修</button>
+										<button v-if="service.task_status==1"
+											@click="change_status(service.task_no,service.task_status,2)"
+											class="btn btn-primary">完成维修</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!--维修管理end-->
+					
+					
+					<!--库存管理start-->
+					<div v-if="fit_view" class="panel panel-primary">
+						<div class="panel-heading">库存信息配件列表</div>
+						<div class="panel-body"></div>
+						<table class="table table-bordered table-striped table-hover">
+							<thead>
+								<tr align="center" style="font-weight: bold;">
+									<td>配件编号</td>
+									<td>配件名称</td>
+									<td>库存数量</td>
+									<td>产地</td>
+								</tr>
+							</thead>
+							<tbody class="ttr" align="center">
+								<tr v-for="fit in fit_list">
+									<td>{{fit.fit_no}}</td>
+									<td>{{fit.fit_name}}</td>
+									<td>{{fit.fit_qty}}</td>
+									<td>{{fit.fit_city}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!--库存管理end-->
+					
+				</div>
+			</div>
+		</div>
+		<script>
+			//创建vue实例
+			const {	createApp } = Vue
+			//创建网页对象
+			createApp({
+				data() {//页面中需要绑定的数据
+					return {
+						task_list: [], //任务列表
+						service_list: [], //维修服务列表
+						fit_list: [], //配件猎豹
+						cus_view: true, //用户面板
+						service_view: false, //维修面板
+						fit_view: false //配件仓库面板
+					}
+				},
+				mounted() {//当VUE加载时调用
+					this.query_all();
+				},
+				methods: {//自定义的方法
+					query_all: function() {
+						var that = this;
+						$.post("http://localhost:3000/task?name=query_all", function(data) {
+							console.log(data);
+							that.task_list = data;
+							console.log(that.task_list);
+						})
+					},
+					query_all_service: function() { //查询所有业务
+						var that = this;
+						$.post("http://localhost:3000/task?name=query_all", function(data) {
+							that.service_list = data;
+							console.log(that.service_list);
+						})
+					},
+					query_all_fit: function() { //查询所有配件
+						var that = this;
+						$.post("http://localhost:3000/task?name=query_all_fit", function(data) {
+							that.fit_list = data;
+							console.log(that.fit_list);
+						})
+					},
+					change_status: function(task_no, task_item, task_status) { //查询所有配件
+						var that = this;
+						if (confirm("确认修改【" + task_no + "】吗")) {
+							$.post("http://localhost:3000/task?name=edit_status", {
+								"task_no": task_no,
+								"task_item": task_item,
+								"task_status": task_status,
+							}, function(data) {
+								that.query_all_service(); //重新加载服务
+							});
+						}
+					},
+					removeTask: function(task_no) { //删除
+						var that = this;
+						if (confirm("确认删除【" + task_no + "】吗")) {
+							$.post("http://localhost:3000/task?name=remove_task", {
+								"task_no": task_no,
+							}, function(data) {
+								that.query_all(); //重新加载服务
+							});
+						}
+					},
+					show_manager: function(flag) {
+						if (flag == 1) { //显示客户接待
+							this.cus_view = true;
+							this.service_view = false;
+							this.fit_view = false;
+						} else if (flag == 2) { //维修服务
+							this.cus_view = false;
+							this.service_view = true;
+							this.fit_view = false;
+							this.query_all_service();
+						} else if (flag == 3) { //配件查询
+							this.cus_view = false;
+							this.service_view = false;
+							this.fit_view = true;
+							this.query_all_fit();
+						}
+					},
+					save_task: function() {
+						var cus_name = $("#cus_name").val(); //找到控件并取得值
+						var cus_phone = $("#cus_phone").val();
+						var task_item = $("#task_item").val()
+						var that = this
+						
+						$.post("http://localhost:3000/task?name=save_task", {
+							"cus_name": cus_name,
+							"cus_phone": cus_phone,
+							"task_item": task_item
+						}, function(data) {
+							console.log(data)
+							//清空
+							$("#cus_name").val()
+							$("#cus_phone").val()
+							$("#task_item").val()
+							
+						})
+						
+					}
+				}
+			}).mount('#app')
+		</script>
+	</body>
+</html>

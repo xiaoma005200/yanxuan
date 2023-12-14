@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>		<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+		<script src="bootstrap/js/jquery-2.1.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vue.global.js" type="text/javascript" charset="utf-8"></script>
+		<script src="bootstrap/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+
+		<style>
+			td {
+				text-align: center;
+			}
+
+			thead td {
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container" style="margin-top:50px;" id="app">
+			<div class="row">
+				<! --进度条start-->
+				<div class="col-md-9">
+					<div class="panel panel-primary">
+						<div class="panel-heading">业务处理进度</div>
+						<table class="table">
+							<tbody class="trr1">
+								<tr align="center" v-for="task in service_list">
+									<td>{{ task.task_no }}</td>
+									<td width="65%">
+										<div class="progress">
+											<div class="progress-bar progress-bar-success" role="progressbar"
+												aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
+												:style=" 'width:'+(task.task_status==0?'20':task.task_status==1?'60':task.task_status==2?'100':'')+'%' ">
+												{{ task.task_status==0?'20':task.task_status==1?'60':task.task_status==2?'100':'' }}%
+											</div>
+										</div>
+									</td>
+									<td>2023-05-16</td>
+									<td>{{ task.task_status==0?"录单完成":task.task_status==1?"维修中":task.task_status==2?"取机":" " }}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<!--进度条end-->
+				<!--任务条目start-->
+				<div class="col-md-3">
+					<div class="panel panel-primary ">
+						<div class="panel-heading">任务条目</div>
+						<table class="table table-bordered table-hover">
+							<thead>
+								<tr>
+									<td>任务编号</td>
+									<td>项目</td>
+								</tr>
+							</thead>
+							<tbody class="ttr" class="warning">
+								<tr class="task.task_status==2?'info':'' " v-for="task in service_list">
+									<td>{{ task.task_no }}</td>
+									<td>换{{ task.task_item }}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<!--任务条目end-->
+			</div>
+		</div>
+		<script>
+			//创建vue实例
+			const { createApp } = Vue
+			//创建网页对象
+			createApp({
+				data(){//页面中需要绑定的数据
+					return{
+						service_list:[],//任务列表
+					}
+				},
+				mounted(){//当VUE加载时调用
+					this.load()
+					var that = this;
+					setInterval(()=>{
+						that.load()
+					},3000);
+				},
+				methods: {//自定义的方法
+					load(){
+						var that = this;
+						$.post("http://localhost:3000/task?name=query_all",function(data){
+							that.service_list = data;
+							console.log(that.service_list)
+							console.log(data);
+						})
+					}
+				},
+			}).mount('#app')
+		</script>
+	</body>
+</html>

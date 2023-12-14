@@ -1,0 +1,91 @@
+.cart {
+  background-color: #f5f5f5;
+}
+.cart .cartScroll {
+  height: calc(100vh - 100rpx);
+}
+.cart .cartScroll .cartList .cartItem {
+  position: relative;
+  width: 100%;
+  height: 172rpx;
+  margin-top: 20rpx;
+  background-color: #fff;
+  padding: 20rpx;
+  display: flex;
+}
+.cart .cartScroll .cartList .cartItem .iconfont {
+  height: 172rpx;
+  font-size: 40rpx;
+  line-height: 172rpx;
+}
+.cart .cartScroll .cartList .cartItem .iconfont.selected {
+  color: #dd1a21;
+}
+.cart .cartScroll .cartList .cartItem .goodItem {
+  display: flex;
+}
+.cart .cartScroll .cartList .cartItem .goodItem image {
+  width: 172rpx;
+  height: 172rpx;
+  margin: 0 20rpx;
+}
+.cart .cartScroll .cartList .cartItem .goodItem .goodInfo .name {
+  font-size: 34rpx;
+  margin: 10rpx;
+}
+.cart .cartScroll .cartList .cartItem .goodItem .goodInfo .price {
+  color: #f00;
+  font-size: 34rpx;
+}
+.cart .cartScroll .cartList .cartItem .countCtrl {
+  position: absolute;
+  right: 60rpx;
+  bottom: 30rpx;
+}
+.cart .cartScroll .cartList .cartItem .countCtrl text {
+  border: 2rpx solid #ddd;
+  padding: 8rpx 24rpx;
+}
+.cart .cartScroll .cartList .cartItem .countCtrl text:nth-child(2) {
+  border: none;
+  border-top: 2rpx solid #ddd;
+  border-bottom: 2rpx solid #ddd;
+}
+.cart .footer {
+  border-top: 2rpx solid #ddd;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.cart .footer .iconfont {
+  margin-left: 10rpx;
+}
+.cart .footer .iconfont.selected {
+  color: #dd1a21;
+}
+.cart .footer .selected {
+  margin-left: 10rpx;
+}
+.cart .footer .btn {
+  text-align: center;
+  position: absolute;
+}
+.cart .footer .total {
+  margin-left: 50rpx;
+  height: 100rpx;
+  width: 200rpx;
+  right: 200rpx;
+}
+.cart .footer .order {
+  height: 100rpx;
+  width: 200rpx;
+  right: 0;
+  background-color: #f00;
+  color: #fff;
+}
+

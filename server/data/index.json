@@ -1,0 +1,302 @@
+{
+    "firstList": [
+        {
+            "id": 1,
+            "superid": 0,
+            "name": "居家生活",
+            "picUrl":"http://localhost:3000/public/images/jj.png",
+            "childList": [
+                {
+                    "id": 101,
+                    "superid": 1,
+                    "name": "家居装饰",
+                    "picUrl":""
+                },
+                {
+                    "id": 102,
+                    "superid": 1,
+                    "name": "厨房用品",
+                    "picUrl":""
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "superid": 0,
+            "name": "服饰鞋包",
+            "picUrl":"http://localhost:3000/public/images/fs.png",
+            "childList": [
+                {
+                    "id": 103,
+                    "superid": 2,
+                    "name": "男装",
+                    "picUrl":""
+                },
+                {
+                    "id": 104,
+                    "superid": 2,
+                    "name": "女装",
+                    "picUrl":""
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "superid": 0,
+            "name": "美食酒水",
+            "picUrl":"http://localhost:3000/public/images/ry.png",
+            "childList": [
+                {
+                    "id": 105,
+                    "superid": 3,
+                    "name": "美妆",
+                    "picUrl":""
+                },
+                {
+                    "id": 106,
+                    "superid": 3,
+                    "name": "酒水",
+                    "picUrl":""
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "superid": 0,
+            "name": "个护清洁",
+            "picUrl":"http://localhost:3000/public/images/qj.png",
+            "childList": [
+                {
+                    "id": 107,
+                    "superid": 4,
+                    "name": "个人护理",
+                    "picUrl":""
+                },
+                {
+                    "id": 108,
+                    "superid": 4,
+                    "name": "清洁用品",
+                    "picUrl":""
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "superid": 0,
+            "name": "母婴亲子",
+            "picUrl":"http://localhost:3000/public/images/my.png",
+            "childList": [
+                {
+                    "id": 109,
+                    "superid": 5,
+                    "name": "母婴",
+                    "picUrl":""
+                },
+                {
+                    "id": 110,
+                    "superid": 5,
+                    "name": "亲子",
+                    "picUrl":""
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "superid": 0,
+            "name": "运动旅行",
+            "picUrl":"http://localhost:3000/public/images/lx.png",
+            "childList": [
+                {
+                    "id": 111,
+                    "superid": 6,
+                    "name": "运动户外",
+                    "picUrl":""
+                },
+                {
+                    "id": 112,
+                    "superid": 6,
+                    "name": "旅行用品",
+                    "picUrl":""
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "superid": 0,
+            "name": "宠物生活",
+            "picUrl":"http://localhost:3000/public/images/cw.png",
+            "childList": [
+                {
+                    "id": 113,
+                    "superid": 7,
+                    "name": "猫猫",
+                    "picUrl":""
+                },
+                {
+                    "id": 114,
+                    "superid": 7,
+                    "name": "狗狗",
+                    "picUrl":""
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "superid": 0,
+            "name": "平台清仓",
+            "picUrl":"http://localhost:3000/public/images/qc.png",
+            "childList": [
+                {
+                    "id": 115,
+                    "superid": 8,
+                    "name": "美国特产",
+                    "picUrl":""
+                },
+                {
+                    "id": 116,
+                    "superid": 8,
+                    "name": "日本精品",
+                    "picUrl":""
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "superid": 0,
+            "name": "好货抄底",
+            "picUrl":"http://localhost:3000/public/images/cd.png",
+            "childList": [
+                {
+                    "id": 117,
+                    "superid": 9,
+                    "name": "折扣专区",
+                    "picUrl":""
+                },
+                {
+                    "id": 118,
+                    "superid": 9,
+                    "name": "秒杀特惠",
+                    "picUrl":""
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "superid": 0,
+            "name": "特色新品",
+            "picUrl":"http://localhost:3000/public/images/xp.png",
+            "childList": [
+                {
+                    "id": 119,
+                    "superid": 10,
+                    "name": "特产",
+                    "picUrl":""
+                },
+                {
+                    "id": 120,
+                    "superid": 10,
+                    "name": "精品",
+                    "picUrl":""
+                }
+            ]
+        }
+    ],
+    "secondList": [
+        {
+          "icon": "https://yanxuan.nosdn.127.net/a03dd909803b9ac032eba58b7253a2f6.png",
+          "imgUrl":"http://localhost:3000/public/images/dunpai.png",
+          "schemeUrl": "/static/img/dunpai.png",
+          "description": "小马自营品牌"
+        },
+        {
+          "icon": "https://yanxuan.nosdn.127.net/2d0402ffcd52b3ec3b07422681c42a89.png",
+          "imgUrl":"http://localhost:3000/public/images/zhengque.png",
+          "schemeUrl": "/static/img/zhengque.png",
+          "description": "30天无忧退货" 
+        },
+        {
+          "icon": "https://yanxuan.nosdn.127.net/eb61ee48e8942dbd1784c9ee75ebe955.png",
+          "imgUrl":"http://localhost:3000/public/images/qiandai.png",
+          "schemeUrl": "/static/img/qiandai.png",
+          "description": "48小时极速退款"
+        }
+    ],
+    "thirdList":[
+        {
+            "id": 1,
+            "superid": 0,
+            "name": "玻璃杯",
+            "titleImg":"http://localhost:3000/public/images/shuibei.png",
+            "childList": [
+                {
+                    "id": 201,
+                    "superid": 1,
+                    "text": "简约时尚高颜值藤编玻璃杯两只装",
+                    "picUrl":"http://localhost:3000/public/images/sb1.png"
+                },
+                {
+                    "id": 202,
+                    "superid": 1,
+                    "text": "纯净通透树纹纹理光彩绚烂冰川玻璃杯",
+                    "picUrl":"http://localhost:3000/public/images/sb2.png"
+                },
+                {
+                    "id": 203,
+                    "superid": 1,
+                    "text": "自营5折抢购送礼精选经典星愿杯双层耐热玻璃杯",
+                    "picUrl":"http://localhost:3000/public/images/sb3.png"
+                },
+                {
+                    "id": 204,
+                    "superid": 1,
+                    "text": "家用加厚耐热玻璃杯泡茶杯带盖办公杯",
+                    "picUrl":"http://localhost:3000/public/images/sb4.png"
+                },
+                {
+                    "id": 205,
+                    "superid": 1,
+                    "text": "网易云音乐-音乐有灵系列",
+                    "picUrl":"http://localhost:3000/public/images/sb5.png"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "superid": 0,
+            "name": "四件套",
+            "titleImg":"http://localhost:3000/public/images/sijiantao.png",
+            "childList": [
+                {
+                    "id": 206,
+                    "superid": 2,
+                    "text": "A类超柔有氧全棉四件套",
+                    "picUrl":"http://localhost:3000/public/images/sjt1.png"
+                },
+                {
+                    "id": 207,
+                    "superid": 2,
+                    "text": "裸睡亲肤经典A类针织四件套",
+                    "picUrl":"http://localhost:3000/public/images/sjt2.png"
+                },
+                {
+                    "id": 208,
+                    "superid": 2,
+                    "text": "全棉剪花马卡龙纯色四件套",
+                    "picUrl":"http://localhost:3000/public/images/sjt3.png"
+                },
+                {
+                    "id": 209,
+                    "superid": 2,
+                    "text": "A类亲肤宜裸睡,60支西西里花园系列四件套",
+                    "picUrl":"http://localhost:3000/public/images/sjt4.png"
+                },
+                {
+                    "id": 210,
+                    "superid": 2,
+                    "text": "A类有氧全棉印花件套-北欧",
+                    "picUrl":"http://localhost:3000/public/images/sjt5.png"
+                }
+            ]
+        }
+    ]
+}

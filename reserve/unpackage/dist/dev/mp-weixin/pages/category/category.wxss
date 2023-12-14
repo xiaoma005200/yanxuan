@@ -1,0 +1,78 @@
+.category .header {
+  padding: 20rpx 0;
+}
+.category .header .search {
+  height: 60rpx;
+  width: 90%;
+  margin: 0 auto;
+  line-height: 60rpx;
+  font-size: 30rpx;
+  text-align: center;
+  border-radius: 4rpx;
+  background-color: #ddd;
+}
+.category .content {
+  display: flex;
+  height: calc(100vh - 102rpx);
+  border-top: 2rpx solid #333;
+}
+.category .content .left {
+  width: 20%;
+  height: 100%;
+  border-right: 2rpx solid #333;
+}
+.category .content .left .menuScroll {
+  height: calc(100vh - 102rpx);
+}
+.category .content .left .menuScroll .menuItem {
+  position: relative;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 30rpx;
+  text-align: center;
+}
+.category .content .left .menuScroll .menuItem.active::before {
+  content: "";
+  width: 4rpx;
+  height: 30rpx;
+  background-color: #f00;
+  position: absolute;
+  left: 6rpx;
+  top: 15rpx;
+}
+.category .content .right {
+  width: 80%;
+  height: calc(100vh - 102rpx);
+}
+.category .content .right .contentScroll {
+  height: calc(100vh - 102rpx);
+}
+.category .content .right .contentScroll .categoryImg {
+  width: 520rpx;
+  height: 200rpx;
+  display: block;
+  margin: 20rpx auto;
+}
+.category .content .right .contentScroll .goodList {
+  display: flex;
+  flex-wrap: wrap;
+}
+.category .content .right .contentScroll .goodList .goodItem {
+  width: 33.3%;
+  height: 200rpx;
+  text-align: center;
+}
+.category .content .right .contentScroll .goodList .goodItem .goodImg {
+  width: 90%;
+  height: 140rpx;
+}
+.category .content .right .contentScroll .goodList .goodItem .goodName {
+  font-size: 26rpx;
+  white-space: pre-wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
